@@ -272,11 +272,18 @@
 
     .navbar__cta {
       font-family:var(--ff-head); font-size:0.83rem; font-weight:700;
-      color:var(--white); background:var(--red);
+      color:#fff; background:var(--red);
       padding:0.42rem 1.05rem; border-radius:var(--r-sm); border:1.5px solid var(--red);
-      transition:background 0.3s var(--ease),color 0.3s var(--ease),box-shadow 0.3s var(--ease),transform 0.3s var(--ease);
+      position:relative; overflow:hidden;
+      transition:box-shadow 0.3s var(--ease),transform 0.3s var(--ease);
     }
-    .navbar__cta:hover { background:transparent; color:var(--red-lt); box-shadow:0 0 16px rgba(232,17,45,.32); transform:translateY(-1px); }
+    .navbar__cta::before {
+      content:''; position:absolute; top:0; left:-75%; width:50%; height:100%;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,.28),transparent);
+      transform:skewX(-20deg); transition:left 0s; pointer-events:none;
+    }
+    .navbar__cta:hover::before { left:135%; transition:left 0.48s var(--ease); }
+    .navbar__cta:hover { box-shadow:0 4px 16px rgba(200,0,31,.3); transform:translateY(-1px); }
 
     /* Hamburger */
     .navbar__hamburger {
@@ -418,8 +425,8 @@
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; position:relative;
     }
     .hero__title-main::after { content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:64px; height:4px; border-radius:99px; background:linear-gradient(90deg,var(--green),var(--red)); }
-    .hero__title-sub { font-family:var(--ff-head); font-size:clamp(.82rem,1.8vw,1.2rem); font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--green-lt); margin-top:1rem; }
-    .hero__about { font-size:clamp(.9rem,1.25vw,1rem); font-weight:300; color:rgba(26,26,26,.62); line-height:1.82; max-width:580px; }
+    .hero__title-sub { font-family:var(--ff-head); font-size:clamp(.72rem,2.5vw,1.2rem); font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--green-lt); margin-top:1rem; }
+    .hero__about { font-size:clamp(.88rem,2.2vw,1rem); font-weight:300; color:rgba(26,26,26,.62); line-height:1.82; max-width:580px; }
     .hero__about strong { color:#1A1A1A; font-weight:500; }
     .hero__actions { display:flex; align-items:center; flex-wrap:wrap; justify-content:center; gap:.85rem; }
     .hero__fade { position:absolute; bottom:0; left:0; right:0; height:100px; z-index:2; pointer-events:none; background:linear-gradient(to bottom,transparent,#F8F9F8); }
@@ -495,19 +502,27 @@
     .solutions__it { margin-bottom:clamp(3rem,7vw,5rem); }
 
     /* Typewriter */
-    .typewriter-wrap { text-align:center; margin-bottom:3rem; min-height:5rem; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem; }
-    .typewriter-label { font-family:var(--ff-head); font-size:.68rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,245,240,.3); }
+    .typewriter-wrap { text-align:center; margin-bottom:3rem; min-height:clamp(7rem,12vw,10rem); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.65rem; }
+    .typewriter-label { font-family:var(--ff-head); font-size:.68rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:rgba(26,26,26,.4); }
     .typewriter-text {
       font-family:var(--ff-head); font-size:clamp(2rem,6vw,5rem); font-weight:800; letter-spacing:-.03em; line-height:1;
       background:linear-gradient(135deg,#1A1A1A 30%,var(--green) 100%);
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-      min-height:1.1em;
+      min-height:1em;
     }
     .typewriter-cursor {
-      display:inline-block; width:3px; height:.85em; background:var(--green-lt);
-      margin-left:4px; vertical-align:middle; border-radius:2px;
+      display:inline-block;
+      width: clamp(3px, .4vw, 5px);
+      /* Use the same clamp as .typewriter-text so height always matches */
+      height: 1em;
+      font-size: clamp(2rem,6vw,5rem);
+      background:var(--green);
+      margin-left:5px;
+      /* text-bottom aligns the cursor base with the text baseline */
+      vertical-align: text-bottom;
+      border-radius:3px;
       animation:cursorBlink .75s step-end infinite;
-      -webkit-text-fill-color:var(--green-lt);
+      -webkit-text-fill-color:var(--green);
     }
     @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
 
@@ -549,7 +564,7 @@
     .about__title span { background:linear-gradient(90deg,var(--green-lt),var(--red)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .about__text { font-size:.95rem; font-weight:300; color:rgba(26,26,26,.62); line-height:1.82; }
     .about__list { display:flex; flex-direction:column; gap:.65rem; }
-    .about__list-item { display:flex; align-items:center; gap:.75rem; font-size:.9rem; font-weight:400; color:rgba(245,245,240,.78); }
+    .about__list-item { display:flex; align-items:center; gap:.75rem; font-size:.9rem; font-weight:400; color:rgba(26,26,26,.78); }
     .about__list-item::before { content:''; width:7px; height:7px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,var(--green-lt),var(--red)); box-shadow:0 0 8px rgba(0,135,95,.5); }
     .about__stats { display:flex; gap:2rem; flex-wrap:wrap; padding-top:1rem; border-top:1px solid rgba(0,0,0,.08); }
     .about__stat-num { font-family:var(--ff-head); font-size:1.9rem; font-weight:800; background:linear-gradient(90deg,var(--green-lt),var(--red)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
@@ -565,10 +580,10 @@
     .about__card--mission .about__card-label { color:var(--red-lt); }
     .about__card-title { font-family:var(--ff-head); font-size:1.2rem; font-weight:700; color:var(--white); margin-bottom:.7rem; letter-spacing:-.01em; }
     .about__card-text  { font-size:.875rem; font-weight:300; color:rgba(26,26,26,.6); line-height:1.72; }
-    .about__card-icon  { position:absolute; top:1.4rem; right:1.4rem; width:38px; height:38px; border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; opacity:.18; }
+    .about__card-icon  { position:absolute; top:1.4rem; right:1.4rem; width:38px; height:38px; border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; opacity:.55; }
     .about__card--vision  .about__card-icon { background:var(--green); }
     .about__card--mission .about__card-icon { background:var(--red); }
-    .about__card-icon svg { width:20px; height:20px; stroke:var(--white); fill:none; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+    .about__card-icon svg { width:20px; height:20px; stroke:#fff; fill:none; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
 
     /* ============================================================
        14 — PARTNERS MARQUEE
@@ -582,14 +597,14 @@
     }
     .partners__track { display:flex; width:max-content; padding-block:.6rem; }
     .partners__track + .partners__track { margin-top:1.2rem; }
-    .partners__track--left  { animation:marqueeLeft  30s linear infinite; }
-    .partners__track--right { animation:marqueeRight 38s linear infinite; }
+    .partners__track--left  { animation:marqueeLeft  45s linear infinite; }
+    .partners__track--right { animation:marqueeRight 45s linear infinite; }
     @keyframes marqueeLeft  { from{transform:translateX(0)}    to{transform:translateX(-50%)} }
     @keyframes marqueeRight { from{transform:translateX(-50%)} to{transform:translateX(0)}   }
     .partners__stage:hover .partners__track { animation-play-state:paused; }
-    .partner-item { display:flex; align-items:center; justify-content:center; padding:.5rem 3rem; flex-shrink:0; border-right:1px solid rgba(0,0,0,.07); transition:opacity .3s var(--ease),transform .3s var(--ease); cursor:default; }
+    .partner-item { display:flex; align-items:center; justify-content:center; padding:.5rem clamp(2.5rem,6vw,5rem); flex-shrink:0; border-right:1px solid rgba(0,0,0,.07); transition:opacity .3s var(--ease),transform .3s var(--ease); cursor:default; }
     .partner-item:hover { opacity:.9; transform:scale(1.05); }
-    .partner-item__logo { width:180px; height:120px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .partner-item__logo { width:130px; height:60px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     /* Natural colours on light bg — slight desaturate at rest, full colour on hover */
     .partner-item__logo img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; opacity:.7; filter:grayscale(.25); transition:opacity .3s var(--ease),filter .3s var(--ease); }
     .partner-item:hover .partner-item__logo img { opacity:1; filter:none; }
@@ -1041,13 +1056,20 @@
       • Services           → SITE_DATA.services
       • Why Choose Us      → SITE_DATA.whyUs
       • IT solutions       → SITE_DATA.itSolutions
+                             (typewriter cycles through these names)
       • Cyber solutions    → SITE_DATA.cyberSolutions
+                             (these appear as labels on the 3D globe)
       • About bullets      → SITE_DATA.aboutBullets
       • About stats        → SITE_DATA.aboutStats
       • Partners           → SITE_DATA.partners
-      • Contact info       → SITE_DATA.contact.info
+                             (logo image paths — put files in images/ folder)
+      • Partner logo size  → CSS .partner-item__logo { width / height }
+      • Contact info cards → SITE_DATA.contact.info
+      • WhatsApp number    → SITE_DATA.contact.whatsapp
+      • Form endpoint      → SITE_DATA.contact.formEndpoint
       • Form recipients    → SITE_DATA.contact.formRecipients
-      • Social links       → SITE_DATA.social
+      • Facebook link      → SITE_DATA.social.facebook
+      • LinkedIn link      → SITE_DATA.social.linkedin
   ============================================================ -->
   <script>
     /* ============================================================
@@ -1148,7 +1170,7 @@
          JS splits into two rows and handles the seamless loop.
       ────────────────────────────────────────────────────────── */
       partners: [
-        { logo:'image.png'        },
+        { logo:'images/cisco.png'        },
         { logo:'images/paloalto.png'     },
         { logo:'images/fortinet.png'     },
         { logo:'images/sophos.png'       },
@@ -1303,9 +1325,11 @@
       ── */
       const goldenAngle = Math.PI * (3 - Math.sqrt(5)); /* ~137.5° */
       const points = labels.map((_, i) => {
-        const t   = i / (COUNT - 1 || 1);             /* 0 → 1        */
-        const lat = Math.asin(2 * t - 1);             /* -π/2 → +π/2  */
-        const lon = goldenAngle * i;                   /* evenly spaced */
+        const t   = i / (COUNT - 1 || 1);             /* 0 → 1           */
+        /* Clamp to ±68° so no label sits at a pole where rotation stalls */
+        const MAX_LAT = 68 * Math.PI / 180;
+        const lat = MAX_LAT * (2 * t - 1);            /* −68° → +68°     */
+        const lon = goldenAngle * i + Math.PI * 0.3;  /* offset start    */
         return { lat, lon };
       });
 
@@ -1488,20 +1512,16 @@
     function buildPartners() {
       const stage = document.getElementById('partnersStage');
       const all   = SITE_DATA.partners;
-      const half  = Math.ceil(all.length / 2);
 
       function itemHTML(p) {
         return `<div class="partner-item"><div class="partner-item__logo"><img src="${p.logo}" alt="Partner logo" loading="lazy"><\/div><\/div>`;
       }
-      function buildTrack(list, dir) {
-        const t = document.createElement('div');
-        t.className = `partners__track partners__track--${dir}`;
-        const h = list.map(itemHTML).join('');
-        t.innerHTML = h + h; /* duplicated for seamless loop */
-        return t;
-      }
-      stage.appendChild(buildTrack(all.slice(0,half), 'left'));
-      stage.appendChild(buildTrack(all.slice(half),   'right'));
+      /* Single centred row, tripled so the loop is seamless even with few logos */
+      const t = document.createElement('div');
+      t.className = 'partners__track partners__track--left';
+      const h = all.map(itemHTML).join('');
+      t.innerHTML = h + h + h;
+      stage.appendChild(t);
     }
 
     /* ── Contact section ── */
