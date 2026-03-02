@@ -39,6 +39,9 @@
   <link rel="icon"             type="image/png"     href="images/favicon.png" />
   <link rel="apple-touch-icon"                      href="images/apple-touch-icon.png" />
 
+  <!-- Cloudflare Turnstile — anti-bot CAPTCHA (invisible to users) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <!-- Fonts — preload key weights to prevent flash of unstyled text -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -657,6 +660,9 @@
     .form-input:focus,.form-textarea:focus { border-color:rgba(0,106,78,.5); background:#fff; box-shadow:0 0 0 3px rgba(0,106,78,.1); }
     .form-input:-webkit-autofill { -webkit-box-shadow:0 0 0 100px #F8F9F8 inset; -webkit-text-fill-color:#1A1A1A; }
     .form-textarea { resize:vertical; min-height:110px; }
+    /* Turnstile widget spacing */
+    .cf-turnstile { margin-top:.4rem; }
+
     .form-submit {
       width:100%; display:flex; align-items:center; justify-content:center; gap:.5rem;
       font-family:var(--ff-head); font-size:.95rem; font-weight:700; letter-spacing:.025em;
@@ -979,6 +985,9 @@
               <label class="form-label" for="fieldMessage">Message *</label>
               <textarea class="form-textarea" id="fieldMessage" name="message" placeholder="Tell us about your security needs…" required></textarea>
             </div>
+            <!-- Cloudflare Turnstile widget — renders automatically -->
+            <div class="cf-turnstile" id="turnstileWidget" data-theme="light"></div>
+
             <button class="form-submit" type="submit" id="formSubmit">
               Send Message
               <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1198,6 +1207,9 @@
           3. Copy the endpoint URL → paste it below
         */
         formEndpoint: 'https://formspree.io/f/YOUR_FORM_ID', /* ← paste here */
+
+        /* Cloudflare Turnstile — anti-bot protection */
+        turnstileSiteKey: '0x4AAAAAACk2Kzl8Lc8wDy0N',
 
         /* Primary recipient is set in Formspree dashboard.
            Extra addresses go here as CC. */
@@ -1714,6 +1726,25 @@
     const submitBtn = document.getElementById('formSubmit');
     const successEl = document.getElementById('formSuccess');
     const errorEl   = document.getElementById('formError');
+
+    /* ── Cloudflare Turnstile — init widget with site key from SITE_DATA ── */
+    const turnstileWidget = document.getElementById('turnstileWidget');
+    if (turnstileWidget && SITE_DATA.contact.turnstileSiteKey) {
+      /* Render widget once Turnstile script has loaded */
+      const initTurnstile = () => {
+        if (typeof turnstile !== 'undefined') {
+          turnstile.render('#turnstileWidget', {
+            sitekey: SITE_DATA.contact.turnstileSiteKey,
+            theme:   'light',
+          });
+        } else {
+          /* Script not loaded yet — retry after 300ms */
+          setTimeout(initTurnstile, 300);
+        }
+      };
+      initTurnstile();
+    }
+
     /* Dev warning if Formspree hasn't been configured yet */
     if (form.action.includes('YOUR_FORM_ID')) {
       form.addEventListener('submit', e => {
@@ -1723,13 +1754,20 @@
       });
     } else {
     form.addEventListener('submit', async e => {
+      /* Block submit if Turnstile token not yet generated */
+      const token = form.querySelector('[name="cf-turnstile-response"]');
+      if (!token || !token.value) {
+        errorEl.textContent = 'Please complete the security check above.';
+        errorEl.classList.add('visible');
+        return;
+      }
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
       submitBtn.disabled=true; submitBtn.textContent='Sending…';
       successEl.classList.remove('visible'); errorEl.classList.remove('visible');
       try {
         const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
-        if (res.ok) { successEl.classList.add('visible'); form.reset(); }
+        if (res.ok) { successEl.classList.add('visible'); form.reset(); if (typeof turnstile !== 'undefined') turnstile.reset('#turnstileWidget'); }
         else          errorEl.classList.add('visible');
       } catch { errorEl.classList.add('visible'); }
       finally {
