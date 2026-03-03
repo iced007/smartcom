@@ -18,24 +18,24 @@
         content="cybersecurity Bangladesh, IT solutions UAE, SOC, SIEM, managed security, penetration testing, cloud solutions, Smartcom" />
   <meta name="author" content="Smartcom Limited" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.smartcom.com/" />
+  <link rel="canonical" href="https://www.smartcom.com.bd/" />
 
   <!-- Open Graph — controls preview cards on WhatsApp, LinkedIn, Facebook -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://www.smartcom.com/" />
+  <meta property="og:url"         content="https://www.smartcom.com.bd/" />
   <meta property="og:title"       content="Smartcom Limited — IT & Cybersecurity Solutions" />
   <meta property="og:description" content="Leading provider of IT, consultancy and cybersecurity solutions in Bangladesh and UAE. Securing digital futures since 2011." />
-  <meta property="og:image"       content="https://www.smartcom.com/images/og-banner.jpg" />
+  <meta property="og:image"       content="https://www.smartcom.com.bd/images/og-banner.jpg" />
   <!-- ↑ Replace with your actual domain and a 1200×630 banner image -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="Smartcom Limited — IT & Cybersecurity Solutions" />
   <meta name="twitter:description" content="Leading provider of IT, consultancy and cybersecurity solutions in Bangladesh and UAE." />
-  <meta name="twitter:image"       content="https://www.smartcom.com/images/og-banner.jpg" />
+  <meta name="twitter:image"       content="https://www.smartcom.com.bd/images/og-banner.jpg" />
 
   <!-- Favicon — replace href with your actual favicon files -->
-  <link rel="icon"             type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F8F9F8'/><polyline points='6,4 16,16 6,28' fill='none' stroke='%23005C42' stroke-width='4' stroke-linecap='square' stroke-linejoin='miter'/><polyline points='14,4 24,16 14,28' fill='none' stroke='%23005C42' stroke-width='2.5' stroke-linecap='square' stroke-linejoin='miter' opacity='0.38'/><circle cx='24' cy='16' r='2.5' fill='%23E8112D'/></svg>" />
   <link rel="icon"             type="image/png"     href="images/favicon.png" />
   <link rel="apple-touch-icon"                      href="images/apple-touch-icon.png" />
 
@@ -45,23 +45,11 @@
   <!-- Fonts — preload key weights to prevent flash of unstyled text -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="loading">
-
-  <!-- ============================================================
-    LOADING SCREEN — disappears automatically after ~1.8s
-  ============================================================ -->
-  <div class="loader" id="loader">
-    <div class="loader__mark">
-      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    </div>
-    <div class="loader__name">Smartcom Limited</div>
-    <div class="loader__bar"></div>
-  </div>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -75,11 +63,7 @@
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#home" class="navbar__brand">
-        <div class="navbar__logo"><span class="logo-mark"></span></div>
-        <div class="navbar__name">
-          <span class="navbar__name-main">Smartcom</span>
-          <span class="navbar__name-sub">Limited</span>
-        </div>
+        <img src="assets/smartcom-logo.svg" alt="Smartcom" class="navbar__logo-img" />
       </a>
       <nav class="navbar__nav" aria-label="Primary">
         <ul class="navbar__links" id="navLinks"></ul>
@@ -106,17 +90,15 @@
     </div>
     <div class="container hero__inner">
       <div class="hero__badge anim d1">
-        <span class="hero__badge-dot"></span>Securing Digital Futures Since 2011<span class="hero__badge-dot"></span>
+        <span class="hero__badge-dot"></span>SOC · TOC · MSSP · Offensive Security · BD &amp; UAE<span class="hero__badge-dot"></span>
       </div>
-      <h1 class="hero__title anim d2">
-        <span class="hero__title-main">SMARTCOM</span>
-        <span class="hero__title-sub">Limited</span>
-      </h1>
+      <div class="hero__logo anim d2">
+        <img src="assets/smartcom-logo.svg" alt="Smartcom" class="hero__logo-svg" />
+      </div>
       <p class="hero__about anim d3">
-        A leading provider of <strong>information technology</strong>, consultancy and
-        <strong>cybersecurity solutions</strong> and a value added distributor/partner,
-        focused in providing computer systems, software solutions, peripherals &amp;
-        accessories, networking products and complete cybersecurity solutions.
+        Bangladesh &amp; UAE's trusted <strong>IT &amp; cybersecurity partner</strong> —
+        delivering Security Operations, Compliance, Cloud and Managed Security Services
+        to enterprises since 2011.
       </p>
       <div class="hero__actions anim d4">
         <a href="#solutions" class="btn btn--primary">
@@ -158,7 +140,21 @@
   </section>
 
   <!-- ============================================================
-    SOLUTIONS — typewriter + cybersecurity globeid
+    CLIENTS — logo grid with hover reveal
+    Add/remove clients in SITE_DATA.clients in main.js
+  ============================================================ -->
+  <section class="section clients" id="clients">
+    <div class="container">
+      <div class="clients__header reveal">
+        <p class="eyebrow">Trusted By</p>
+        <h2 class="headline">Our <span class="grad">Clients</span></h2>
+      </div>
+      <div class="clients__grid" id="clientsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SOLUTIONS — typewriter + cybersecurity globe
   ============================================================ -->
   <section class="section solutions" id="solutions">
     <div class="container">
@@ -196,9 +192,10 @@
             <h2 class="about__title">Pioneering Digital Security <span>Since 2011</span></h2>
           </div>
           <p class="about__text reveal-left rd2">
-            SMARTCOM is a leading provider of information technology, consultancy, and cybersecurity solutions.
-            We've been at the forefront of the rapidly evolving digital landscape, helping clients harness the
-            power of technology while staying safe from cyber threats.
+            Founded in 2011, SMARTCOM is a leading provider of information technology, consultancy, and
+            cybersecurity solutions. We help clients harness the full power of technology while staying safe
+            from cyber threats — with a team that brings over 25 years of distribution, vendor management,
+            and cybersecurity experience.
           </p>
           <ul class="about__list reveal-left rd3" id="aboutList"></ul>
           <div class="about__stats reveal-left rd4" id="aboutStats"></div>
@@ -208,13 +205,13 @@
             <div class="about__card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
             <p class="about__card-label">Our Vision</p>
             <h3 class="about__card-title">Where We're Headed</h3>
-            <p class="about__card-text">To be a trusted partner and leader in providing comprehensive IT and cybersecurity solutions that drive innovation, efficiency, and security for clients.</p>
+            <p class="about__card-text">To be a trusted partner and leader in providing comprehensive information technology and cybersecurity solutions that drive innovation, efficiency, and security for our clients.</p>
           </div>
           <div class="about__card about__card--mission reveal-right rd3">
             <div class="about__card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
             <p class="about__card-label">Our Mission</p>
             <h3 class="about__card-title">How We Operate</h3>
-            <p class="about__card-text">To provide cutting-edge cybersecurity solutions to businesses and individuals using the latest technologies and best practices to protect data and systems from cyber threats.</p>
+            <p class="about__card-text">To provide cutting-edge cybersecurity solutions to businesses and individuals, leveraging the latest technologies to protect sensitive data and critical systems — while delivering unparalleled quality, integrity, and customer service.</p>
           </div>
         </div>
       </div>
@@ -236,26 +233,37 @@
   </section>
 
   <!-- ============================================================
-    CONTACT — info + form
+    CONTACT
   ============================================================ -->
   <section class="section contact" id="contact">
     <div class="container">
-      <div class="contact__grid">
-        <div class="contact__left">
-          <div class="reveal-left rd1">
-            <p class="eyebrow">Reach Out</p>
-            <h2 class="contact__title" id="contactTitle"></h2>
-          </div>
-          <p class="contact__tagline reveal-left rd2" id="contactTagline"></p>
-          <div class="contact__info" id="contactInfo"></div>
-        </div>
-        <div class="contact__right reveal-right rd1">
+
+      <!-- Header -->
+      <div class="contact__header reveal">
+        <p class="eyebrow">Get In Touch</p>
+        <h2 class="contact__title" id="contactTitle"></h2>
+        <p class="contact__tagline" id="contactTagline"></p>
+      </div>
+
+      <!-- 4 Action cards — built by JS from SITE_DATA.contact.actions -->
+      <div class="contact__actions" id="contactActions"></div>
+
+      <!-- Info strip — address & hours — built by JS from SITE_DATA.contact.info -->
+      <div class="contact__info-strip" id="contactInfo"></div>
+
+      <!-- Collapsible formal enquiry form -->
+      <button class="contact__form-toggle" id="formToggle" type="button">
+        Have a detailed request? Send us a message
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="contact__form-wrap" id="formWrap">
+        <div class="contact__form-inner">
           <p class="contact__form-title">Send Us a Message</p>
           <!--
             FORMSPREE SETUP:
             1. Sign up at https://formspree.io (free)
-            2. Create a new form, set recipient to your email
-            3. Copy the endpoint URL → paste into SITE_DATA.contact.formEndpoint below
+            2. Create a new form → copy the endpoint URL
+            3. Paste it into SITE_DATA.contact.formEndpoint in main.js
           -->
           <form class="contact__form" id="contactForm" method="POST" novalidate>
             <div class="form-row">
@@ -282,9 +290,7 @@
               <label class="form-label" for="fieldMessage">Message *</label>
               <textarea class="form-textarea" id="fieldMessage" name="message" placeholder="Tell us about your security needs…" required></textarea>
             </div>
-            <!-- Cloudflare Turnstile widget — renders automatically -->
             <div class="cf-turnstile" id="turnstileWidget" data-theme="light"></div>
-
             <button class="form-submit" type="submit" id="formSubmit">
               Send Message
               <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -300,6 +306,7 @@
           </form>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -313,10 +320,9 @@
         <!-- Left: brand + copyright -->
         <div class="footer__brand">
           <div class="footer__brand-row">
-            <div class="footer__logo"><span class="logo-mark"></span></div>
-            <span class="footer__name">Smartcom Limited</span>
+            <img src="assets/smartcom-logo.svg" alt="Smartcom" class="footer__logo-img" />
           </div>
-          <p class="footer__copy">© <span id="footerYear"></span> Smartcom Limited. All rights reserved.<br>Made with <span>♥</span> in Bangladesh &amp; UAE.</p>
+          <p class="footer__copy">© <span id="footerYear"></span> Smartcom Limited. All rights reserved.<br>Serving Bangladesh &amp; UAE since 2011.</p>
         </div>
 
         <!-- Centre: social icons — hrefs set from SITE_DATA.social -->

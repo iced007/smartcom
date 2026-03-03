@@ -90,13 +90,7 @@
       display: flex; align-items: center; gap: .65rem;
       margin-bottom: .5rem;
     }
-    .brand__mark {
-      width: 40px; height: 40px; border-radius: 6px;
-      background: linear-gradient(135deg, var(--green) 45%, var(--red));
-      display: flex; align-items: center; justify-content: center;
-    }
-    .brand__mark svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .brand__name { font-family: var(--ff-head); font-size: 1rem; font-weight: 800; color: var(--text); }
+    .brand__logo-img { height:28px; width:auto; display:block; }
 
     /* 404 number */
     .err-code {

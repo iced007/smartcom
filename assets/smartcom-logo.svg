@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+
+  <!-- ═══════════════════════════════════════════════
+       SMARTCOM — Horizontal lockup
+       Mark: double chevron, offset, light background
+  ═══════════════════════════════════════════════ -->
+
+  <!-- ── Chevron mark — centred at x=80, y=80 ── -->
+  <g transform="translate(28, 18)">
+
+    <!-- Outer chevron — full weight, deep green -->
+    <polyline
+      points="0,0 42,62 0,124"
+      fill="none"
+      stroke="#005C42"
+      stroke-width="11"
+      stroke-linecap="square"
+      stroke-linejoin="miter"
+    />
+
+    <!-- Inner chevron — offset right, lighter weight, brighter green -->
+    <polyline
+      points="28,0 70,62 28,124"
+      fill="none"
+      stroke="#005C42"
+      stroke-width="7"
+      stroke-linecap="square"
+      stroke-linejoin="miter"
+      opacity="0.38"
+    />
+
+    <!-- Red accent dot — inner chevron tip -->
+    <circle cx="70" cy="62" r="5.5" fill="#E8112D"/>
+
+  </g>
+
+  <!-- ── Divider — vertical rule between mark and wordmark ── -->
+  <line x1="138" y1="32" x2="138" y2="128" stroke="#1A1A1A" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- ── Wordmark ── -->
+  <text
+    x="162" y="95"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-size="36"
+    font-weight="900"
+    fill="#1A1A1A"
+    letter-spacing="7"
+  >SMARTCOM</text>
+
+  <!-- ── Tagline ── -->
+  <text
+    x="164" y="118"
+    font-family="'Arial', sans-serif"
+    font-size="10.5"
+    font-weight="400"
+    fill="#005C42"
+    letter-spacing="4.5"
+  >CYBERSECURITY &amp; IT SOLUTIONS</text>
+
+</svg>

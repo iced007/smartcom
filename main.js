@@ -28,7 +28,8 @@
 /* ============================================================
        ★ SITE DATA — edit everything here ★
     ============================================================ */
-    const SITE_DATA = {
+    document.addEventListener('DOMContentLoaded', () => {
+const SITE_DATA = {
 
       /* ── Navigation links ─────────────────────────────────────
          label  → text in menu
@@ -39,7 +40,9 @@
       navLinks: [
         { label: 'Home',         href: '#home',     active: true  },
         { label: 'Services',     href: '#services', active: false },
+        { label: 'Why Us',       href: '#why',      active: false },
         { label: 'Solutions',    href: '#solutions',active: false },
+        { label: 'Clients',      href: '#clients',  active: false },
         { label: 'About',        href: '#about',    active: false },
         { label: 'Partners',     href: '#partners', active: false },
         { label: 'Contact Us',   href: '#contact',  active: false, isCta: true },
@@ -67,10 +70,23 @@
          icon  → SVG paths
       ────────────────────────────────────────────────────────── */
       whyUs: [
-        { stat:'13+',  title:'Years of Expertise',     desc:'Over a decade delivering IT and cybersecurity solutions across Bangladesh and the UAE, with a proven track record clients trust.',          icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
-        { stat:'24/7', title:'Always-On Protection',   desc:'Our Security Operations Centre never sleeps. Round-the-clock monitoring, detection and response so threats are neutralised before they escalate.', icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
-        { stat:'2',    title:'Countries, One Vision',  desc:'Dual presence in Bangladesh and the UAE gives us deep regional insight and the ability to serve clients across South Asia and the Gulf seamlessly.', icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
-        { stat:'500+', title:'Clients Secured',        desc:'From SMEs to large enterprises, we\'ve helped hundreds of organisations strengthen their security posture and achieve compliance.',              icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
+        { stat:'13+',  title:'Years of Expertise',       desc:'Over a decade delivering IT and cybersecurity solutions across Bangladesh and the UAE, with a proven track record clients trust.',                    icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
+        { stat:'24/7', title:'Always-On Protection',     desc:'Our Security Operations Centre never sleeps. Round-the-clock monitoring, detection and response so threats are neutralised before they escalate.',   icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
+        { stat:'500+', title:'Clients Secured',          desc:'From SMEs to large enterprises, we\'ve helped hundreds of organisations strengthen their security posture and achieve compliance.',                    icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
+        { stat:'VAD',  title:'Value Added Distributor',  desc:'Authorised value-added distributor and partner for leading global cybersecurity vendors — giving clients access to cutting-edge products and expertise.',icon:'<polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>' },
+      ],
+
+      /* ── Clients ─────────────────────────────────────────────
+         Add each client with a logo path and sector tag.
+         Logos go in your images/clients/ folder.
+      ────────────────────────────────────────────────────────── */
+      clients: [
+        { name: 'Client One',   logo: 'images/clients/client1.png',  sector: 'Banking & Finance'      },
+        { name: 'Client Two',   logo: 'images/clients/client2.png',  sector: 'Telecommunications'     },
+        { name: 'Client Three', logo: 'images/clients/client3.png',  sector: 'Government'             },
+        { name: 'Client Four',  logo: 'images/clients/client4.png',  sector: 'Healthcare'             },
+        { name: 'Client Five',  logo: 'images/clients/client5.png',  sector: 'Energy & Utilities'     },
+        { name: 'Client Six',   logo: 'images/clients/client6.png',  sector: 'Retail & E-Commerce'    },
       ],
 
       /* ── IT Solutions (typewriter) ────────────────
@@ -92,29 +108,33 @@
          icon → SVG paths
       ────────────────────────────────────────────────────────── */
       cyberSolutions: [
-        { name:'SIEM',                        desc:'Centralised security event collection, correlation, and real-time alerting across your entire infrastructure.',                                                                icon:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>' },
-        { name:'Identity Access Management',  desc:'Control who accesses what with zero-trust identity policies, MFA, and privileged account governance.',                                                                       icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
-        { name:'Disaster Recovery',           desc:'Rapid business continuity planning and automated failover that minimises downtime when the unexpected strikes.',                                                              icon:'<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>' },
-        { name:'SOAR',                        desc:'Automate repetitive security tasks and orchestrate responses across your tools to cut mean time to respond.',                                                                 icon:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' },
-        { name:'Deception Technology',        desc:'Deploy honeypots and decoy assets that lure attackers into revealing themselves before real damage occurs.',                                                                  icon:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>' },
-        { name:'Moving Target Defense',       desc:'Continuously shift attack surfaces — IPs, ports, configurations — making it exponentially harder for adversaries to target your systems.',                                   icon:'<path d="M5 12h14M12 5l7 7-7 7"/>' },
-        { name:'Zero Trust Access',           desc:'Never trust, always verify. Enforce least-privilege access for every user and device regardless of network location.',                                                       icon:'<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>' },
-        { name:'Managed Detection & Response',desc:'24/7 expert-led threat hunting, detection and rapid containment — your dedicated security team without the in-house cost.',                                                  icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>' },
+        /* These 8 names appear on the 3D rotating globe */
+        { name:'SOC',                         desc:'Security Operation Center — 24/7 real-time monitoring, threat detection and incident response.',                                                                              icon:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>' },
+        { name:'TOC',                         desc:'Technology Optimization Center — maximise performance and ROI from your existing IT investments.',                                                                             icon:'<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>' },
+        { name:'Offensive Security',          desc:'Penetration testing, red team exercises and vulnerability assessments that simulate real-world attacks.',                                                                     icon:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>' },
+        { name:'Compliance Center',           desc:'Navigate ISO 27001, NIST, GDPR and NCA with expert-led gap assessments and continuous compliance monitoring.',                                                               icon:'<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>' },
+        { name:'Managed Security',            desc:'Fully managed end-to-end security services — firewall, endpoint, SIEM and threat intelligence.',                                                                             icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
+        { name:'SOAR',                        desc:'Security Orchestration, Automation and Response — automate and orchestrate threat responses across all your tools.',                                                          icon:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' },
+        { name:'Training & Cert.',            desc:'Accredited cybersecurity training and certification pathways from foundational awareness to advanced specialist courses.',                                                     icon:'<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>' },
+        { name:'Zero Trust',                  desc:'Never trust, always verify — enforce least-privilege access for every user and device regardless of network location.',                                                       icon:'<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>' },
       ],
 
       /* ── About bullets ────────────────────────────────────── */
       aboutBullets: [
         'Computer systems & software solutions',
-        'Peripherals & accessories',
-        'Networking products',
+        'Peripherals, accessories & networking products',
         'Complete cybersecurity solutions',
+        'IT consulting & managed services',
+        'Cloud migration & digital transformation',
+        'Data privacy compliance & risk assessments',
       ],
 
       /* ── About stats ──────────────────────────────────────── */
       aboutStats: [
-        { num:'13+',  label:'Years of expertise'  },
-        { num:'2',    label:'Countries: BD & UAE'  },
-        { num:'500+', label:'Clients secured'      },
+        { num:'13+',  label:'Years of expertise'          },
+        { num:'25+',  label:'Yrs management experience'   },
+        { num:'2',    label:'Countries: BD & UAE'         },
+        { num:'500+', label:'Clients secured'             },
       ],
 
       /* ── Partners ─────────────────────────────────────────────
@@ -123,16 +143,12 @@
          JS splits into two rows and handles the seamless loop.
       ────────────────────────────────────────────────────────── */
       partners: [
-        { logo:'images/cisco.png'        },
-        { logo:'images/paloalto.png'     },
-        { logo:'images/fortinet.png'     },
-        { logo:'images/sophos.png'       },
-        { logo:'images/checkpoint.png'   },
-        { logo:'images/crowdstrike.png'  },
-        { logo:'images/tenable.png'      },
-        { logo:'images/ibm.png'          },
-        { logo:'images/microsoft.png'    },
-        { logo:'images/sentinelone.png'  },
+        /* Real partners from smartcom.com.bd
+           Download logos and save to images/ folder */
+        { logo:'images/infopercept.png'  },  /* https://www.infopercept.com/      */
+        { logo:'images/sophos.png'       },  /* https://www.sophos.com/           */
+        { logo:'images/google-workspace.png' }, /* Google Workspace               */
+        { logo:'images/microsoft-365.png'    }, /* Microsoft 365                  */
       ],
 
       /* ── Contact ──────────────────────────────────────────────
@@ -159,21 +175,49 @@
            Extra addresses go here as CC. */
         formRecipients: [
           'nafisaffan14@gmail.com',
-          /* 'sales@smartcom.com', */
+          'info@smartcom.com.bd',
         ],
 
         headline: 'Get In <span>Touch<\/span>',
-        tagline:  'Ready to enhance your cybersecurity posture? Our team of experts is here to help you navigate the complex world of IT and security.',
+        tagline:  'Ready to enhance your cybersecurity posture? Our team of experts across Bangladesh and the UAE is here to help.',
 
         /* WhatsApp number — used for click-to-chat link */
-        whatsapp: '+8801301220088', /* ← international format, no spaces */
+        whatsapp: '+8801700769292', /* real number from smartcom.com.bd */
 
         info: [
-          { type:'address', label:'Bangladesh Office', value:'123 Gulshan Avenue, Dhaka 1212, Bangladesh' },  /* ← replace */
-          { type:'address', label:'UAE Office',        value:'456 Sheikh Zayed Road, Dubai, UAE'          },  /* ← replace */
-          { type:'whatsapp',label:'WhatsApp',          value:'+880 130 122 0088'                           },
-          { type:'email',   label:'Email',             value:'info@smartcom.com'                           },  /* ← replace */
-          { type:'hours',   label:'Business Hours',    value:'Sun – Thu: 9:00 AM – 6:00 PM (GST / BST)'   },
+          { type:'address', label:'Bangladesh Office', value:'Celebration Point (Level-5), Plot: 3 & 5, Road: 113/A, Gulshan, Dhaka-1212, Bangladesh'  },
+          { type:'whatsapp',label:'WhatsApp',          value:'+880 170 076 9292'                                                                        },
+          { type:'email',   label:'Email',             value:'info@smartcom.com.bd'                                                                     },
+          { type:'email',   label:'Email (alt)',        value:'info@smartcombd.com'                                                                     },
+          { type:'hours',   label:'Business Hours',    value:'Sun – Thu: 9:00 AM – 6:00 PM (BST)'                                                      },
+        ],
+
+        /* ── Action cards — edit href values when ready ── */
+        actions: [
+          {
+            type:  'cal',
+            title: 'Book a Call',
+            tag:   'Free 30-min discovery call',
+            href:  '#',   /* ← add your Calendly URL */
+          },
+          {
+            type:  'wa',
+            title: 'WhatsApp Us',
+            tag:   'Typically replies within 1 hour',
+            href:  null,  /* built from contact.whatsapp automatically */
+          },
+          {
+            type:  'email',
+            title: 'Email Directly',
+            tag:   'For formal enquiries',
+            href:  null,  /* built from contact.info email automatically */
+          },
+          {
+            type:  'li',
+            title: 'LinkedIn',
+            tag:   'Connect with our team',
+            href:  'https://www.linkedin.com/company/smartcom-ae/',
+          },
         ],
       },
 
@@ -182,8 +226,8 @@
          Leave '#' as placeholder until then.
       ────────────────────────────────────────────────────────── */
       social: {
-        facebook: '#',   /* ← paste your Facebook page URL  */
-        linkedin: '#',   /* ← paste your LinkedIn page URL  */
+        facebook: 'https://www.facebook.com/smartcombd',
+        linkedin: 'https://www.linkedin.com/company/smartcom-ae/',
       },
 
     }; /* ← end of SITE_DATA */
@@ -235,6 +279,25 @@
           <p class="why-card__desc">${w.desc}<\/p>`;
         g.appendChild(d);
       });
+    }
+
+    /* ── Clients grid ── */
+    function buildClients() {
+      const grid = document.getElementById('clientsGrid');
+      if (!grid) return;
+      SITE_DATA.clients.forEach((client, i) => {
+        const card = document.createElement('div');
+        card.className = 'client-card';
+        card.innerHTML = `
+          <div class="client-card__logo">
+            <img src="${client.logo}" alt="${client.name} logo" loading="lazy">
+          <\/div>
+          <span class="client-card__name">${client.name}<\/span>
+          <span class="client-card__sector">${client.sector}<\/span>`;
+        grid.appendChild(card);
+      });
+      /* Staggered scroll reveal */
+      staggerReveal('.client-card', 'revealed', 80);
     }
 
     /* ── Globe — 3D rotating sphere with cyber solution labels ────
@@ -483,6 +546,8 @@
     /* ── Contact section ── */
     function buildContact() {
       const cfg = SITE_DATA.contact;
+
+      /* Title + tagline */
       const titleEl = document.getElementById('contactTitle');
       if (titleEl) titleEl.innerHTML = cfg.headline;
       const tagEl = document.getElementById('contactTagline');
@@ -492,7 +557,6 @@
       const form = document.getElementById('contactForm');
       if (form) {
         form.action = cfg.formEndpoint;
-        /* Extra CC recipients */
         cfg.formRecipients.slice(1).forEach(email => {
           const h = document.createElement('input');
           h.type='hidden'; h.name='_cc'; h.value=email;
@@ -500,37 +564,77 @@
         });
       }
 
-      /* Info cards — each icon value is the full SVG inner markup with stroke class already set */
-      const icons = {
-        address:  '<path class="icon-normal" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle class="icon-normal" cx="12" cy="10" r="3"/>',
-        email:    '<path class="icon-normal" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline class="icon-normal" points="22,6 12,13 2,6"/>',
-        hours:    '<circle class="icon-normal" cx="12" cy="12" r="10"/><polyline class="icon-normal" points="12 6 12 12 16 14"/>',
-        whatsapp: '<path class="icon-wa" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>',
+      /* ── Build 4 action cards ── */
+      const actionsEl = document.getElementById('contactActions');
+      const waNumber  = cfg.whatsapp.replace(/\D/g,'');
+      const emailInfo = cfg.info.find(i => i.type === 'email');
+
+      const cardIcons = {
+        cal:   '<path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>',
+        wa:    '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>',
+        email: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+        li:    '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
       };
 
-      const container = document.getElementById('contactInfo');
-      cfg.info.forEach((item, idx) => {
-        const isWa   = item.type === 'whatsapp';
-        const waHref = isWa ? `https://wa.me/${cfg.whatsapp.replace(/\D/g,'')}` : null;
-        const card   = document.createElement(isWa ? 'a' : 'div');
-        card.className = 'contact__info-item' + (isWa ? ' whatsapp-item' : '');
-        if (isWa) { card.href=waHref; card.target='_blank'; card.rel='noopener'; }
+      cfg.actions.forEach((action, idx) => {
+        /* Resolve href */
+        let href = action.href;
+        if (action.type === 'wa')    href = `https://wa.me/${waNumber}`;
+        if (action.type === 'email') href = emailInfo ? `mailto:${emailInfo.value}` : 'mailto:info@smartcom.com';
+        if (!href || href === '#' && action.type === 'cal') href = '#'; /* placeholder */
+
+        const card = document.createElement('a');
+        card.className = `contact-card contact-card--${action.type} reveal`;
+        card.style.transitionDelay = (idx * 0.08) + 's';
+        card.href   = href;
+        card.target = (action.type === 'wa' || action.type === 'li') ? '_blank' : '_self';
+        card.rel    = 'noopener';
+        card.innerHTML = `
+          <div class="contact-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              ${cardIcons[action.type]}
+            <\/svg>
+          <\/div>
+          <span class="contact-card__title">${action.title}<\/span>
+          <span class="contact-card__tag">${action.tag}<\/span>`;
+        actionsEl.appendChild(card);
+      });
+
+      /* ── Build info strip (address + hours only) ── */
+      const stripEl = document.getElementById('contactInfo');
+      const stripIcons = {
+        address: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+        hours:   '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+      };
+      cfg.info.filter(i => i.type === 'address' || i.type === 'hours').forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'contact__info-item reveal';
+        card.style.transitionDelay = (idx * 0.1) + 's';
         card.innerHTML = `
           <div class="contact__info-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              ${icons[item.type] || icons.address}
+              ${stripIcons[item.type] || stripIcons.address}
             <\/svg>
           <\/div>
           <div class="contact__info-text">
             <span class="contact__info-label">${item.label}<\/span>
             <span class="contact__info-value">${item.value}<\/span>
-            ${isWa ? '<span class="contact__wa-badge">↗ Open WhatsApp<\/span>' : ''}
           <\/div>`;
-        /* Staggered scroll reveal on each info card */
-        card.classList.add('reveal-left');
-        card.style.transitionDelay = (idx * 0.08) + 's';
-        container.appendChild(card);
+        stripEl.appendChild(card);
       });
+
+      /* ── Collapsible form toggle ── */
+      const toggle  = document.getElementById('formToggle');
+      const formWrap= document.getElementById('formWrap');
+      if (toggle && formWrap) {
+        toggle.addEventListener('click', () => {
+          const isOpen = formWrap.classList.toggle('open');
+          toggle.classList.toggle('open', isOpen);
+          toggle.querySelector('span') && (toggle.querySelector('span').textContent =
+            isOpen ? 'Hide the form' : 'Have a detailed request? Send us a message');
+          if (isOpen) setTimeout(() => formWrap.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
+        });
+      }
     }
 
     /* ── Social links in footer ── */
@@ -548,6 +652,7 @@
     buildNav();
     buildServices();
     buildWhyUs();
+    buildClients();
     /* Globe is initialised lazily when section enters viewport */
     buildAbout();
     buildPartners();
@@ -567,12 +672,8 @@
        Hides after the bar animation completes (~1.7s),
        then fires the page-load animations.
     ── */
-    const loader = document.getElementById('loader');
-    setTimeout(() => {
-      loader.classList.add('loader--done');
-      document.body.classList.remove('loading');
-      requestAnimationFrame(() => setTimeout(() => document.body.classList.add('loaded'), 60));
-    }, 1750);
+    /* No loading screen — fire page animations immediately */
+    document.body.classList.add('loaded');
 
     /* ── Navbar scroll behaviour ── */
     const navbar = document.getElementById('navbar');
@@ -720,3 +821,5 @@
       }
     });
     } /* end else — Formspree configured */
+
+});
