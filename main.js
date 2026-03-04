@@ -41,8 +41,8 @@ const SITE_DATA = {
         { label: 'Home',         href: '#home',     active: true  },
         { label: 'Services',     href: '#services', active: false },
         { label: 'Why Us',       href: '#why',      active: false },
-        { label: 'Solutions',    href: '#solutions',active: false },
         { label: 'Clients',      href: '#clients',  active: false },
+        { label: 'Solutions',    href: '#solutions',active: false },
         { label: 'About',        href: '#about',    active: false },
         { label: 'Partners',     href: '#partners', active: false },
         { label: 'Contact Us',   href: '#contact',  active: false, isCta: true },
@@ -194,12 +194,12 @@ const SITE_DATA = {
 
         /* ── Action cards — edit href values when ready ── */
         actions: [
-          {
-            type:  'cal',
-            title: 'Book a Call',
-            tag:   'Free 30-min discovery call',
-            href:  '#',   /* ← add your Calendly URL */
-          },
+          // {
+          //   type:  'cal',
+          //   title: 'Book a Call',
+          //   tag:   'Free 30-min discovery call',
+          //   href:  '#',   /* ← add your Calendly URL */
+          // },
           {
             type:  'wa',
             title: 'WhatsApp Us',

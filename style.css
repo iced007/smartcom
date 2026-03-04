@@ -143,7 +143,7 @@
     /* Brand */
     .navbar__brand { display:flex; align-items:center; gap:0.7rem; flex-shrink:0; }
     .navbar__logo-img {
-      height: 50px;
+      height: 20px;
       width: auto;
       display:block;
       transition: opacity 0.2s var(--ease);
@@ -592,7 +592,7 @@
     .contact__tagline { font-size:.95rem; font-weight:300; color:rgba(26,26,26,.6); line-height:1.8; margin-top:.75rem; }
 
     /* ── 4 action cards ── */
-    .contact__actions { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:clamp(2rem,4vw,3rem); }
+    .contact__actions { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:clamp(2rem,4vw,3rem); }
     @media(max-width:900px)  { .contact__actions { grid-template-columns:repeat(2,1fr); } }
     @media(max-width:480px)  { .contact__actions { grid-template-columns:1fr 1fr; gap:.75rem; } }
 
@@ -757,7 +757,7 @@
     /* Brand column */
     .footer__brand { display:flex; flex-direction:column; gap:.5rem; }
     .footer__brand-row { display:flex; align-items:center; gap:.6rem; }
-    .footer__logo-img { height:70px; width:auto; display:block; opacity:.85; }
+    .footer__logo-img { height:30px; width:auto; display:block; opacity:.85; }
     .footer__brand-row a:hover .footer__logo-img { opacity:1; }
     .footer__copy { font-size:.75rem; color:rgba(26,26,26,.42); }
     .footer__copy span { color:var(--red); }
