@@ -70,7 +70,7 @@ const SITE_DATA = {
          icon  → SVG paths
       ────────────────────────────────────────────────────────── */
       whyUs: [
-        { stat:'13+',  title:'Years of Expertise',       desc:'Over a decade delivering IT and cybersecurity solutions across Bangladesh and the UAE, with a proven track record clients trust.',                    icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
+        { stat:'13+',  title:'Years of Expertise',       desc:'Over a decade delivering IT and cybersecurity solutions across Bangladesh, with a proven track record clients trust.',                    icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
         { stat:'24/7', title:'Always-On Protection',     desc:'Our Security Operations Centre never sleeps. Round-the-clock monitoring, detection and response so threats are neutralised before they escalate.',   icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
         { stat:'500+', title:'Clients Secured',          desc:'From SMEs to large enterprises, we\'ve helped hundreds of organisations strengthen their security posture and achieve compliance.',                    icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
         { stat:'VAD',  title:'Value Added Distributor',  desc:'Authorised value-added distributor and partner for leading global cybersecurity vendors — giving clients access to cutting-edge products and expertise.',icon:'<polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>' },
@@ -133,7 +133,7 @@ const SITE_DATA = {
       aboutStats: [
         { num:'13+',  label:'Years of expertise'          },
         { num:'25+',  label:'Yrs management experience'   },
-        { num:'2',    label:'Countries: BD & UAE'         },
+        { num:'1',    label:'Countries: BD'         },
         { num:'500+', label:'Clients secured'             },
       ],
 
@@ -179,7 +179,7 @@ const SITE_DATA = {
         ],
 
         headline: 'Get In <span>Touch<\/span>',
-        tagline:  'Ready to enhance your cybersecurity posture? Our team of experts across Bangladesh and the UAE is here to help.',
+        tagline:  'Ready to enhance your cybersecurity posture? Our team of experts across Bangladesh is here to help.',
 
         /* WhatsApp number — used for click-to-chat link */
         whatsapp: '+8801700769292', /* real number from smartcom.com.bd */
