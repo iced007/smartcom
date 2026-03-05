@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="svg" href="assets/smartcom icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Services — Smartcom Limited</title>
+</head>
+<body data-page="services">
+
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="home.html" class="navbar__brand">
+        <img src="assets/smartcom-logo.svg" alt="Smartcom" class="navbar__logo-img" />
+      </a>
+      <nav class="navbar__nav" aria-label="Primary">
+        <ul class="navbar__links" id="navLinks"></ul>
+      </nav>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="navbar__mobile-menu" id="mobileMenu">
+      <ul class="navbar__mobile-links" id="mobileLinks"></ul>
+    </div>
+  </header>
+  <div style="height:69px" aria-hidden="true"></div>
+
+
+    <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow anim d1">What We Do</p>
+      <h1 class="page-hero__title anim d2">Our <span>Services</span></h1>
+      <p class="page-hero__sub anim d3">Enterprise-grade IT and cybersecurity solutions tailored for Bangladesh's most demanding organisations.</p>
+    </div>
+  </section>
+
+  <section class="section services" id="services">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Core Capabilities</p>
+        <h2 class="headline">Security <span>Services</span></h2>
+        <div class="divider"><div class="divider__line divider__line--green"></div><div class="divider__dot"></div><div class="divider__line divider__line--red"></div></div>
+      </header>
+      <div class="services__grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section class="section cyber" id="cyber">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Full Portfolio</p>
+        <h2 class="headline">All <span>Solutions</span></h2>
+        <div class="divider"><div class="divider__line divider__line--green"></div><div class="divider__dot"></div><div class="divider__line divider__line--red"></div></div>
+      </header>
+      <div class="cyber__grid" id="cyberGrid"></div>
+    </div>
+  </section>
+
+    <div class="back-home-wrap">
+    <a href="home.html" class="back-home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Back to Home
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-row">
+            <img src="assets/smartcom-logo.svg" alt="Smartcom" class="footer__logo-img" />
+          </div>
+          <p class="footer__copy">© <span id="footerYear"></span> Smartcom Limited. All rights reserved.<br>Serving Bangladesh since 2011.</p>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="social-link" id="socialFb" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" id="socialLi" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+        <div class="footer__right">
+          <p class="footer__tagline">Securing digital futures<br>across Bangladesh<br>since 2011.</p>
+        </div>
+      </div>
+      <div class="footer__stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script src="main.js"></script>
+</body>
+</html>

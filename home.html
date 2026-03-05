@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="svg" href="assets/smartcom icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Smartcom Limited — IT & Cybersecurity Solutions | Bangladesh</title>
+</head>
+<body data-page="home">
+
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="home.html" class="navbar__brand">
+        <img src="assets/smartcom-logo.svg" alt="Smartcom" class="navbar__logo-img" />
+      </a>
+      <nav class="navbar__nav" aria-label="Primary">
+        <ul class="navbar__links" id="navLinks"></ul>
+      </nav>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="navbar__mobile-menu" id="mobileMenu">
+      <ul class="navbar__mobile-links" id="mobileLinks"></ul>
+    </div>
+  </header>
+
+
+  <!-- HERO: typewriter above globe, full viewport -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <div class="hero__blob hero__blob--green"></div>
+      <div class="hero__blob hero__blob--red"></div>
+      <div class="hero__grid"></div>
+    </div>
+    <div class="container hero__globe-layout">
+      <div class="hero__badge anim d1">
+        <span class="hero__badge-dot"></span>SOC · TOC · MSSP · Offensive Security · BD<span class="hero__badge-dot"></span>
+      </div>
+      <div class="hero__typewriter-wrap anim d2">
+        <span class="hero__tw-label">Bangladesh's trusted partner for</span>
+        <div class="hero__tw-text">
+          <span id="typewriterText"></span><span class="typewriter-cursor"></span>
+        </div>
+      </div>
+      <div class="hero__globe-wrap anim d3">
+        <canvas id="globeCanvas"></canvas>
+      </div>
+      <div class="hero__actions anim d4">
+        <a href="services.html" class="btn btn--primary">Explore Services <svg class="btn__icon" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="contact.html" class="btn btn--ghost">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero__fade"></div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Our Capabilities</p>
+        <h2 class="headline">Core <span>Security</span> Services</h2>
+        <div class="divider"><div class="divider__line divider__line--green"></div><div class="divider__dot"></div><div class="divider__line divider__line--red"></div></div>
+      </header>
+      <div class="services__tiles" id="servicesGrid"></div>
+      <div class="section__cta reveal">
+        <a href="services.html" class="btn btn--primary">Explore All Services <svg class="btn__icon" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section why" id="why">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Why Smartcom</p>
+        <h2 class="headline">Why <span>Choose Us</span></h2>
+        <div class="divider"><div class="divider__line divider__line--green"></div><div class="divider__dot"></div><div class="divider__line divider__line--red"></div></div>
+      </header>
+      <div class="why__grid" id="whyGrid"></div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="section clients" id="clients">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Trusted By</p>
+        <h2 class="headline">Our <span>Clients</span></h2>
+        <div class="divider"><div class="divider__line divider__line--green"></div><div class="divider__dot"></div><div class="divider__line divider__line--red"></div></div>
+      </header>
+    </div>
+    <div id="clientsGrid" style="margin-top:2rem"></div>
+    <div class="container">
+      <div class="section__cta reveal">
+        <a href="clients.html" class="btn btn--ghost">Meet Our Clients <svg class="btn__icon" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STATS -->
+  <section class="section about about--home" id="about">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Who We Are</p>
+        <h2 class="headline">Pioneering Digital Security <span>Since 2011</span></h2>
+        <div class="divider"><div class="divider__line divider__line--green"></div><div class="divider__dot"></div><div class="divider__line divider__line--red"></div></div>
+      </header>
+      <div class="about__stats-row reveal" id="aboutStats"></div>
+      <div class="about__cards-row">
+        <div class="about__card about__card--vision reveal">
+          <div class="about__card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <p class="about__card-label">Our Vision</p>
+          <h3 class="about__card-title">Where We're Headed</h3>
+          <p class="about__card-text">To be a trusted partner and leader in providing comprehensive IT and cybersecurity solutions that drive innovation, efficiency, and security for our clients.</p>
+        </div>
+        <div class="about__card about__card--mission reveal">
+          <div class="about__card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <p class="about__card-label">Our Mission</p>
+          <h3 class="about__card-title">How We Operate</h3>
+          <p class="about__card-text">To provide cutting-edge cybersecurity solutions leveraging the latest technologies to protect sensitive data and critical systems — delivering unparalleled quality, integrity, and customer service.</p>
+        </div>
+      </div>
+      <div class="section__cta reveal">
+        <a href="about.html" class="btn btn--ghost">Our Full Story <svg class="btn__icon" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="section partners" id="partners">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Trusted Ecosystem</p>
+        <h2 class="headline">Our <span>Partners</span></h2>
+        <div class="divider"><div class="divider__line divider__line--green"></div><div class="divider__dot"></div><div class="divider__line divider__line--red"></div></div>
+      </header>
+    </div>
+    <div class="partners__stage" id="partnersStage"></div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <header class="reveal" style="text-align:center">
+        <p class="eyebrow">Get In Touch</p>
+        <h2 class="headline">Ready to <span>Get Started?</span></h2>
+      </header>
+      <div class="contact__actions" id="contactActions"></div>
+      <div class="section__cta reveal">
+        <a href="contact.html" class="btn btn--primary">Send Us a Message <svg class="btn__icon" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-row">
+            <img src="assets/smartcom-logo.svg" alt="Smartcom" class="footer__logo-img" />
+          </div>
+          <p class="footer__copy">© <span id="footerYear"></span> Smartcom Limited. All rights reserved.<br>Protecting Bangladesh's cyberspace since 2011.</p>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="social-link" id="socialFb" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" id="socialLi" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+        <div class="footer__right">
+          <p class="footer__tagline">Securing digital futures<br>across Bangladesh<br>since 2011.</p>
+        </div>
+      </div>
+      <div class="footer__stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script src="main.js"></script>
+</body>
+</html>
