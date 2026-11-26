@@ -16,7 +16,7 @@ const SITE_DATA = {
     { label: 'Home',       href: 'home.html'     },
     { label: 'Services',   href: 'services.html' },
     { label: 'Why Us',     href: 'home.html#why'  },
-    { label: 'Clients',    href: 'clients.html'  },
+  /*  { label: 'Clients',    href: 'clients.html'  }, */
     { label: 'About',      href: 'about.html'    },
     { label: 'Partners',   href: 'partners.html'  },
     { label: 'Contact Us', href: 'contact.html', isCta: true },
